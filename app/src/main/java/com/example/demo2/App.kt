@@ -1,11 +1,13 @@
 package com.example.demo2
 
 import android.app.Application
+import androidx.lifecycle.MutableLiveData
 
 
 class App : Application() {
 
     private var storage: Storage? = null
+
 
     val STORAGE: Storage
         get() = storage!!
