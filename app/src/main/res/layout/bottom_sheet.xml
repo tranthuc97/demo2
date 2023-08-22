@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    android:background="@color/purple_200"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="300dp"
+        android:gravity="center_horizontal"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/ic_view1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="đây là ảnh"
+            android:textSize="30sp"
+            android:fontFamily="@font/gilroy_medium"
+            android:gravity="center"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</FrameLayout>

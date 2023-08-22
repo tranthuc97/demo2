@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Demo2</string>
+    <string name="txt_view1">view1</string>
+    <string name="txt_tab1">tab1</string>
+    <string name="txt_tab2">tab2</string>
+    <string name="txt_tab3">tab3</string>
+    <string name="txt_tab4">tab4</string>
+    <string name="txt_tab5">tab5</string>
+    <string name="txt_tab6">tab6</string>
+    <string name="txt_tab7">tab7</string>
+    <string name="txt_tourism">Tourism</string>
+    <string name="txt_my_album">My Album</string>
+    <string name="txt_structure">Structure</string>
+    <string name="txt_nature">Nature</string>
+    <string name="txt_sample">Sample</string>
+    <string name="txt_step">Số bước chân:</string>
+    <string name="txt_time">Thời gian đi bộ:</string>
+</resources>

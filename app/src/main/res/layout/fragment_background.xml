@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/lnFragBackground"
+    android:layout_height="150dp"
+    android:background="@drawable/bg_background_frag"
+    android:gravity="end"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reTopic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:listitem="@layout/item_topic" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rePhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:listitem="@layout/item_photo2" />
+
+</LinearLayout>

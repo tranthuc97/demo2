@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/lnAct2"
+    android:gravity="bottom"
+    android:layout_height="match_parent"
+    android:background="@color/colorGrey"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp">
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:scrollbarSize="10dp"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="horizontal"
+        tools:ignore="ScrollViewCount,UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="ScrollViewSize">
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:text="@string/txt_tab1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:text="@string/txt_tab2"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:text="@string/txt_tab3"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv4"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:text="@string/txt_tab4"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv5"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:text="@string/txt_tab5"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv6"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:text="@string/txt_tab6"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv7"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="center"
+                android:text="@string/txt_tab7"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:ignore="SpeakableTextPresentCheck"
+        android:layout_marginBottom="150dp"
+        tools:listitem="@layout/itemimageview" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:id="@+id/coTest"
+        android:fitsSystemWindows="true"
+        android:layout_height="400dp">
+
+        <ImageView
+            android:id="@+id/your_fragment"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_marginBottom="100dp"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+            android:layout_height="300dp"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</LinearLayout>
