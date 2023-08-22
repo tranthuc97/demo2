@@ -34,16 +34,13 @@ class StepActivity : BaseAct<Activity3Binding>(), SensorEventListener, StepListe
     var numSteps = 0
     lateinit var timeReal:Timer
     var count = 0
-    var countStep = 0
-    var countStep2 = 0
+    var countStep:MutableLiveData<Int> = MutableLiveData(0)
+
     lateinit var thread:Thread
 
     override fun initViews() {
         requestPermission()
-
-
-
-
+        showFragment3(TimeFragment.TAG, null, false)
 
         // Get an instance of the SensorManager
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
@@ -67,53 +64,8 @@ class StepActivity : BaseAct<Activity3Binding>(), SensorEventListener, StepListe
             sensorManager!!.unregisterListener(this)
         }
 
-
-
-        Handler().postDelayed({
-            if(countStep != numSteps){
-                countStep = numSteps
-                timeReal.cancel()
-                timeReal = Timer()
-                timeReal.scheduleAtFixedRate(object : TimerTask() {
-                    override fun run() {
-                        runOnUiThread {
-                            binding!!.tvTime.text = count.toString()
-                            count++
-                        }
-                    }
-                }, 1000, 1000)
-            }else{
-                timeReal.cancel()
-                timeReal = Timer()
-                timeReal.scheduleAtFixedRate(object : TimerTask() {
-                    override fun run() {
-                        runOnUiThread {
-                            binding!!.tvTime.text = count.toString()
-                            count = count
-                        }
-                    }
-                }, 1000, 1000)
-            }
-        },5000)
-
     }
 
-    private fun startTime() {
-        timeReal = Timer()
-        timeReal.scheduleAtFixedRate(object : TimerTask() {
-            override fun run() {
-                runOnUiThread {
-                    binding!!.tvTime.text = count.toString()
-                    count++
-                }
-            }
-        }, 1000, 1000)
-    }
-
-
-    private fun changeTime() {
-
-    }
 
     @SuppressLint("InlinedApi")
     private fun requestPermission() {
@@ -144,6 +96,7 @@ class StepActivity : BaseAct<Activity3Binding>(), SensorEventListener, StepListe
     override fun step(timeNs: Long) {
         numSteps++
         binding!!.tvSteps.text = "Number of Steps: $numSteps"
+        countStep.value = numSteps
         //binding!!.tvTime.text = (timeNs / 1000000000L).toString()
         //
         //binding!!.tvTime.text = ((System.currentTimeMillis() + ((timeNs-SystemClock.elapsedRealtimeNanos())/1000000L))/1000L).toString()
