@@ -105,7 +105,7 @@ abstract class BaseAct<V : ViewBinding> : AppCompatActivity(), OnClickListener,
             }
 
             var trans: FragmentTransaction = supportFragmentManager.beginTransaction()
-                .replace(com.example.demo2.R.id.frFragment, baseFragment, tag)
+                .replace(com.example.demo2.R.id.ln_mainAct, baseFragment, tag)
 
             if (isBacked) {
                 trans.addToBackStack(null)      //trở về màn hình trước đó, true thì có cho phép back

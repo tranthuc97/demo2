@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/frFragment"
+    <TextView
+        android:id="@+id/tvTime"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:drawablePadding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:textAlignment="center"
+        android:text="..."
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:gravity="center"
         android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -30,6 +35,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/black"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -46,9 +52,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
+        android:layout_marginBottom="150dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.639" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_stop"
@@ -58,22 +64,27 @@
         android:text="Stop Pedometer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="100dp"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.749" />
+        app:layout_constraintVertical_bias="0.6" />
 
-    <TextView
-        android:id="@+id/tv_steps2"
-        android:layout_width="341dp"
-        android:layout_height="42dp"
-        android:drawablePadding="4dp"
-        android:text="Click on 'Stop Pedometer' to Stop recording number of Steps"
-        android:textAlignment="center"
+    <Button
+        android:id="@+id/btn_toBMI"
+        android:layout_width="220dp"
+        android:layout_height="49dp"
+        android:background="@drawable/stop"
+        android:text="BMI"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/purple_200"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.892" />
+        app:layout_constraintVertical_bias="0.8" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,5 +34,6 @@
 
         </activity>
         <service android:name="StepService"/>
+        <activity android:name=".step2.BMIActivity"/>
     </application>
 </manifest>
