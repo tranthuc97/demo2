@@ -12,12 +12,13 @@ class Input2Activity:BaseAct<ActivityInput2Binding>() {
 
     override fun initViews() {
         binding!!.btNext.setOnClickListener{
-            if(binding!!.edtHeight.text.toString().isEmpty() || binding!!.edtWeight.text.toString().isEmpty() || binding!!.edtTarget.text.toString().isEmpty()){
+            if(binding!!.edtHeight.text.toString().isEmpty() || binding!!.edtWeight.text.toString().isEmpty() || binding!!.edtTarget.text.toString().isEmpty() || binding!!.edtStepTarget.text.toString().isEmpty()){
                 showNotify("input information")
             }else{
                 CommonUtils.INSTANCE.savePrefs(Constant.HEIGHT,binding!!.edtHeight.text.toString())
                 CommonUtils.INSTANCE.savePrefs(Constant.WEIGHT,binding!!.edtWeight.text.toString())
                 CommonUtils.INSTANCE.savePrefs(Constant.TARGETWEIGHT,binding!!.edtTarget.text.toString())
+                CommonUtils.INSTANCE.savePrefs(Constant.STEPTARGET,binding!!.edtStepTarget.text.toString())
                 CommonUtils.INSTANCE.savePrefs(Constant.BMI,((binding!!.edtWeight.text.toString().toFloat() * 10000F)/(binding!!.edtHeight.text.toString().toFloat() * binding!!.edtHeight.text.toString().toFloat())).toString())
 
                 startActivity(Intent(this, StepActivity()::class.java))

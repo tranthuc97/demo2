@@ -19,6 +19,9 @@ interface StepDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertBMI(step: BMI)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertInfo(info: Info)
+
 
 
     @Update

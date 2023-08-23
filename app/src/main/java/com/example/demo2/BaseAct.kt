@@ -33,7 +33,7 @@ abstract class BaseAct<V : ViewBinding> : AppCompatActivity(), OnClickListener,
         clickView(v)
     }
 
-    protected fun clickView(v: View) {
+    protected open fun clickView(v: View) {
         //do sothing
     }
 

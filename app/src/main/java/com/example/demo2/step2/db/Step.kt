@@ -16,19 +16,15 @@ class Step {
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
 
-    var name: String? = null
-    var age: Int? = null
+    var day: Int? = null
+    var week: Int? = null
+    var month: Int? = null
+    var year: Int? = null
+    var stepTarget: Int? = null
     var step: Int? = null
     var time: Int? = null
     var calorie: Float? = null
     var meter: Float? = null
-    var height: Int? = null
-    var targetWeight: Int? = null
 
 
-
-
-    override fun toString(): String {
-        return name.toString()
-    }
 }
