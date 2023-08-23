@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 
 }
 
@@ -77,4 +78,7 @@ dependencies {
     implementation 'net.danlew:android.joda:2.12.5'
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    //Room data base
+    implementation("androidx.room:room-runtime:2.5.2")
+    kapt("androidx.room:room-compiler:2.5.2")
 }

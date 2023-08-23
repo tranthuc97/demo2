@@ -15,17 +15,17 @@ class HomeAct : BaseAct<ActivityHomeBinding>() {
     }
 
     override fun initViews() {
-        if (App.INSTANCE.STORAGE.listIcon.isEmpty()) {
-            App.INSTANCE.STORAGE.listIcon.add(Icon(R.drawable.ic_view1, "view1"))
-            App.INSTANCE.STORAGE.listIcon.add(Icon(R.drawable.ic_view2, "view2"))
-            App.INSTANCE.STORAGE.listIcon.add(Icon(R.drawable.ic_view3, "view3"))
-            App.INSTANCE.STORAGE.listIcon.add(Icon(R.drawable.ic_view4, "view4"))
-            App.INSTANCE.STORAGE.listIcon.add(Icon(R.drawable.ic_view5, "view5"))
-            App.INSTANCE.STORAGE.listIcon.add(Icon(R.drawable.ic_view6, "view6"))
-            App.INSTANCE.STORAGE.listIcon.add(Icon(R.drawable.ic_view7, "view7"))
-            App.INSTANCE.STORAGE.listIcon.add(Icon(R.drawable.ic_view8, "view8"))
-            App.INSTANCE.STORAGE.listIcon.add(Icon(R.drawable.ic_view9, "view9"))
-            App.INSTANCE.STORAGE.listIcon.add(Icon(R.drawable.ic_view10, "view10"))
+        if (App.INSTANCE.storage.listIcon.isEmpty()) {
+            App.INSTANCE.storage.listIcon.add(Icon(R.drawable.ic_view1, "view1"))
+            App.INSTANCE.storage.listIcon.add(Icon(R.drawable.ic_view2, "view2"))
+            App.INSTANCE.storage.listIcon.add(Icon(R.drawable.ic_view3, "view3"))
+            App.INSTANCE.storage.listIcon.add(Icon(R.drawable.ic_view4, "view4"))
+            App.INSTANCE.storage.listIcon.add(Icon(R.drawable.ic_view5, "view5"))
+            App.INSTANCE.storage.listIcon.add(Icon(R.drawable.ic_view6, "view6"))
+            App.INSTANCE.storage.listIcon.add(Icon(R.drawable.ic_view7, "view7"))
+            App.INSTANCE.storage.listIcon.add(Icon(R.drawable.ic_view8, "view8"))
+            App.INSTANCE.storage.listIcon.add(Icon(R.drawable.ic_view9, "view9"))
+            App.INSTANCE.storage.listIcon.add(Icon(R.drawable.ic_view10, "view10"))
         }
 
 

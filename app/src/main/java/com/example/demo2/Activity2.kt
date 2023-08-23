@@ -25,7 +25,7 @@ class Activity2 : BaseAct<Activity2Binding>() {
     }
 
     override fun initViews() {
-        if(App.INSTANCE.STORAGE.listPhoto1.isEmpty()){
+        if(App.INSTANCE.storage.listPhoto1.isEmpty()){
             addPhoto1()
             //addPhoto2()
             //addPhoto3()
@@ -39,7 +39,7 @@ class Activity2 : BaseAct<Activity2Binding>() {
 
             binding!!.tv1.startAnimation(AnimationUtils.loadAnimation(this,
                 androidx.appcompat.R.anim.abc_grow_fade_in_from_bottom))
-            adapter = RecyclerViewAdapter2(this,App.INSTANCE.STORAGE.listPhoto1){
+            adapter = RecyclerViewAdapter2(this,App.INSTANCE.storage.listPhoto1){
                 adapter!!.KEY.observe(this){
                     changeColorBackground(it)
                 }
@@ -119,16 +119,16 @@ class Activity2 : BaseAct<Activity2Binding>() {
     }
 
     private fun addPhoto1() {
-        App.INSTANCE.STORAGE.listPhoto1.add(Photo(R.drawable.ic_view1, TAB1))
-        App.INSTANCE.STORAGE.listPhoto1.add(Photo(R.drawable.ic_view2, TAB2))
-        App.INSTANCE.STORAGE.listPhoto1.add(Photo(R.drawable.ic_view3, TAB3))
-        App.INSTANCE.STORAGE.listPhoto1.add(Photo(R.drawable.ic_view4, TAB4))
-        App.INSTANCE.STORAGE.listPhoto1.add(Photo(R.drawable.ic_view5, TAB5))
-        App.INSTANCE.STORAGE.listPhoto1.add(Photo(R.drawable.ic_view6, TAB6))
-        App.INSTANCE.STORAGE.listPhoto1.add(Photo(R.drawable.ic_view7, TAB7))
-        App.INSTANCE.STORAGE.listPhoto1.add(Photo(R.drawable.ic_view8, TAB8))
-        App.INSTANCE.STORAGE.listPhoto1.add(Photo(R.drawable.ic_view9, TAB9))
-        App.INSTANCE.STORAGE.listPhoto1.add(Photo(R.drawable.ic_view10, TAB10))
+        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view1, TAB1))
+        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view2, TAB2))
+        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view3, TAB3))
+        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view4, TAB4))
+        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view5, TAB5))
+        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view6, TAB6))
+        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view7, TAB7))
+        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view8, TAB8))
+        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view9, TAB9))
+        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view10, TAB10))
     }
     /*
     private fun addPhoto2() {

@@ -1,20 +1,19 @@
 package com.example.demo2.step2
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Handler
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
-import android.widget.Toast
+import com.example.demo2.App
 import com.example.demo2.BaseAct
 import com.example.demo2.databinding.Activity3Binding
-import com.example.demo2.databinding.ActivityBmiBinding
+import com.example.demo2.step2.db.BMI
+import com.example.demo2.step2.db.Step
+import com.example.demo2.step2.db.Weight
 import java.util.*
 
 
@@ -33,9 +32,8 @@ class StepActivity : BaseAct<Activity3Binding>(), SensorEventListener, StepListe
     var numSteps = 0
     var countStep = 0
     var count = 0
-    var countMax = 1
-    var th:Thread? = null
-    var BMI:Float? = null
+    var countMax = 0
+    var th: Thread? = null
 
 
     @SuppressLint("SetTextI18n")
@@ -44,7 +42,7 @@ class StepActivity : BaseAct<Activity3Binding>(), SensorEventListener, StepListe
 
         // Get an instance of the SensorManager
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
-        accelerator = sensorManager!!.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        accelerator = sensorManager!!.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)
         stepDetector = StepDetector()
         stepDetector!!.registerListener(this)
 
@@ -60,11 +58,6 @@ class StepActivity : BaseAct<Activity3Binding>(), SensorEventListener, StepListe
             sensorManager!!.unregisterListener(this)
         }
 
-        binding!!.btnToBMI.setOnClickListener{
-            var intent = Intent(this, BMIActivity()::class.java)
-            startActivity(intent)
-        }
-
 
         //time.scheduleAtFixedRate(object : TimerTask() {
         //            override fun run() {
@@ -72,35 +65,75 @@ class StepActivity : BaseAct<Activity3Binding>(), SensorEventListener, StepListe
         //                count++
         //            }
         //        }, 1000, 1000)
-        countMax++
+        if(countMax != 0){
+            countMax+=1
+        }
         if (th == null || !th!!.isAlive) {
-                    th = Thread {
-                        for (i in count..countMax) {
-                            Thread.sleep(800)
-                            runOnUiThread {
-                                kotlin.run {
-                                   binding!!.tvTime.text = "time: ${(i-2).toString()}"
-                                    count = i
-                                    countMax = count+1
-                                }
-                            }
+            th = Thread {
+                for (i in count..countMax) {
+                    Thread.sleep(700)
+                    runOnUiThread {
+                        kotlin.run {
+                            binding!!.tvTime.text = "time: ${(i)}"
+                            count = i
+
+                            countMax = count + 1
                         }
                     }
-                    th!!.isDaemon = true
-                    th!!.start()
                 }
+            }
+            th!!.isDaemon = true
+            th!!.start()
+        }
 
-        if(countStep != numSteps) {
+
+        if (countStep != numSteps) {
             countStep = numSteps
             Log.i(TAG, "time1 chạy")
 
         }
         Handler().postDelayed({
-            if(countStep == numSteps){
+            if (countStep == numSteps) {
                 Log.i(TAG, "time1 dừng")
                 countMax = count
+
             }
-        },5000)
+        }, 2000)
+        Log.i(TAG, "check  đếm bước: $numSteps")
+        Log.i(TAG, "check  đếm thời gian: $count")
+        Thread{
+            CommonUtils.INSTANCE.savePrefs(Constant.TIME, count.toString())
+            CommonUtils.INSTANCE.savePrefs(Constant.STEP, numSteps.toString())
+            Log.i(TAG, "check  đếm thời gian lưu: ${CommonUtils.INSTANCE.getPrefs(Constant.TIME)}")
+            Log.i(TAG, "check  đếm bước lưu: ${CommonUtils.INSTANCE.getPrefs(Constant.STEP)}")
+        }.start()
+
+        CommonUtils.INSTANCE.savePrefs(Constant.CALORIE, (numSteps.toFloat() * 0.06F).toString())
+        CommonUtils.INSTANCE.savePrefs(Constant.METER, (numSteps.toFloat() * 0.5F).toString())
+
+        binding!!.btCheck.setOnClickListener {
+            var step = Step()
+            var weight = Weight()
+            var chiSoBMI = BMI()
+//            step.id = 1
+            step.name = CommonUtils.INSTANCE.getPrefs(Constant.NAME)
+            step.age = CommonUtils.INSTANCE.getPrefs(Constant.AGE)!!.toInt()
+            step.height = CommonUtils.INSTANCE.getPrefs(Constant.HEIGHT)!!.toInt()
+            step.step = CommonUtils.INSTANCE.getPrefs(Constant.STEP)!!.toInt()
+            step.time = CommonUtils.INSTANCE.getPrefs(Constant.TIME)!!.toInt()
+            step.calorie = CommonUtils.INSTANCE.getPrefs(Constant.CALORIE)!!.toFloat()
+            step.meter = CommonUtils.INSTANCE.getPrefs(Constant.METER)!!.toFloat()
+            weight.weight = CommonUtils.INSTANCE.getPrefs(Constant.WEIGHT)!!.toInt()
+            step.targetWeight = CommonUtils.INSTANCE.getPrefs(Constant.TARGETWEIGHT)!!.toInt()
+            chiSoBMI.BMI = CommonUtils.INSTANCE.getPrefs(Constant.BMI)!!.toFloat()
+
+
+            Thread {
+                App.INSTANCE.DB.getStepDAO().insertStep(step)
+                App.INSTANCE.DB.getStepDAO().insertBMI(chiSoBMI)
+                App.INSTANCE.DB.getStepDAO().insertWeight(weight)
+            }.start()
+        }
 
     }
 
@@ -125,19 +158,20 @@ class StepActivity : BaseAct<Activity3Binding>(), SensorEventListener, StepListe
                 event.timestamp, event.values[0], event.values[1], event.values[2]
             )
         }
+        numSteps++
+        binding!!.tvSteps.text = "Number of Steps: $numSteps"
 
+        initViews()
     }
-
 
 
     @SuppressLint("SetTextI18n")
     override fun step(timeNs: Long) {
-        numSteps++
-        binding!!.tvSteps.text = "Number of Steps: $numSteps"
+
         //binding!!.tvTime.text = (timeNs / 1000000000L).toString()
         //
         //binding!!.tvTime.text = ((System.currentTimeMillis() + ((timeNs-SystemClock.elapsedRealtimeNanos())/1000000L))/1000L).toString()
-        initViews()
+
     }
 
 }
