@@ -25,7 +25,7 @@ class Activity2 : BaseAct<Activity2Binding>() {
     }
 
     override fun initViews() {
-        if(App.INSTANCE.storage.listPhoto1.isEmpty()){
+        if(App.instance.storage.listPhoto1.isEmpty()){
             addPhoto1()
             //addPhoto2()
             //addPhoto3()
@@ -39,7 +39,7 @@ class Activity2 : BaseAct<Activity2Binding>() {
 
             binding!!.tv1.startAnimation(AnimationUtils.loadAnimation(this,
                 androidx.appcompat.R.anim.abc_grow_fade_in_from_bottom))
-            adapter = RecyclerViewAdapter2(this,App.INSTANCE.storage.listPhoto1){
+            adapter = RecyclerViewAdapter2(this,App.instance.storage.listPhoto1){
                 adapter!!.KEY.observe(this){
                     changeColorBackground(it)
                 }
@@ -53,42 +53,42 @@ class Activity2 : BaseAct<Activity2Binding>() {
         binding!!.tv2.setOnClickListener{
             binding!!.tv2.startAnimation(AnimationUtils.loadAnimation(this,
                 androidx.appcompat.R.anim.abc_grow_fade_in_from_bottom))
-            var adapter = RecyclerViewAdapter2(this,App.INSTANCE.STORAGE.listPhoto2)
+            var adapter = RecyclerViewAdapter2(this,App.instance.STORAGE.listPhoto2)
             binding!!.recyclerView.adapter = adapter
         }
 
         binding!!.tv3.setOnClickListener{
             binding!!.tv3.startAnimation(AnimationUtils.loadAnimation(this,
                 androidx.appcompat.R.anim.abc_grow_fade_in_from_bottom))
-            var adapter = RecyclerViewAdapter2(this,App.INSTANCE.STORAGE.listPhoto3)
+            var adapter = RecyclerViewAdapter2(this,App.instance.STORAGE.listPhoto3)
             binding!!.recyclerView.adapter = adapter
         }
 
         binding!!.tv4.setOnClickListener{
             binding!!.tv4.startAnimation(AnimationUtils.loadAnimation(this,
                 androidx.appcompat.R.anim.abc_grow_fade_in_from_bottom))
-            var adapter = RecyclerViewAdapter2(this,App.INSTANCE.STORAGE.listPhoto4)
+            var adapter = RecyclerViewAdapter2(this,App.instance.STORAGE.listPhoto4)
             binding!!.recyclerView.adapter = adapter
         }
 
         binding!!.tv5.setOnClickListener{
             binding!!.tv5.startAnimation(AnimationUtils.loadAnimation(this,
                 androidx.appcompat.R.anim.abc_grow_fade_in_from_bottom))
-            var adapter = RecyclerViewAdapter2(this,App.INSTANCE.STORAGE.listPhoto5)
+            var adapter = RecyclerViewAdapter2(this,App.instance.STORAGE.listPhoto5)
             binding!!.recyclerView.adapter = adapter
         }
 
         binding!!.tv6.setOnClickListener{
             binding!!.tv6.startAnimation(AnimationUtils.loadAnimation(this,
                 androidx.appcompat.R.anim.abc_grow_fade_in_from_bottom))
-            var adapter = RecyclerViewAdapter2(this,App.INSTANCE.STORAGE.listPhoto6)
+            var adapter = RecyclerViewAdapter2(this,App.instance.STORAGE.listPhoto6)
             binding!!.recyclerView.adapter = adapter
         }
 
         binding!!.tv7.setOnClickListener{
             binding!!.tv7.startAnimation(AnimationUtils.loadAnimation(this,
                 androidx.appcompat.R.anim.abc_grow_fade_in_from_bottom))
-            var adapter = RecyclerViewAdapter2(this,App.INSTANCE.STORAGE.listPhoto7)
+            var adapter = RecyclerViewAdapter2(this,App.instance.STORAGE.listPhoto7)
             binding!!.recyclerView.adapter = adapter
         }
          */
@@ -119,89 +119,89 @@ class Activity2 : BaseAct<Activity2Binding>() {
     }
 
     private fun addPhoto1() {
-        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view1, TAB1))
-        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view2, TAB2))
-        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view3, TAB3))
-        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view4, TAB4))
-        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view5, TAB5))
-        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view6, TAB6))
-        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view7, TAB7))
-        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view8, TAB8))
-        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view9, TAB9))
-        App.INSTANCE.storage.listPhoto1.add(Photo(R.drawable.ic_view10, TAB10))
+        App.instance.storage.listPhoto1.add(Photo(R.drawable.ic_view1, TAB1))
+        App.instance.storage.listPhoto1.add(Photo(R.drawable.ic_view2, TAB2))
+        App.instance.storage.listPhoto1.add(Photo(R.drawable.ic_view3, TAB3))
+        App.instance.storage.listPhoto1.add(Photo(R.drawable.ic_view4, TAB4))
+        App.instance.storage.listPhoto1.add(Photo(R.drawable.ic_view5, TAB5))
+        App.instance.storage.listPhoto1.add(Photo(R.drawable.ic_view6, TAB6))
+        App.instance.storage.listPhoto1.add(Photo(R.drawable.ic_view7, TAB7))
+        App.instance.storage.listPhoto1.add(Photo(R.drawable.ic_view8, TAB8))
+        App.instance.storage.listPhoto1.add(Photo(R.drawable.ic_view9, TAB9))
+        App.instance.storage.listPhoto1.add(Photo(R.drawable.ic_view10, TAB10))
     }
     /*
     private fun addPhoto2() {
-        App.INSTANCE.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view10))
-        App.INSTANCE.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view9))
-        App.INSTANCE.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view8))
-        App.INSTANCE.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view7))
-        App.INSTANCE.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view6))
-        App.INSTANCE.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view5))
-        App.INSTANCE.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view4))
-        App.INSTANCE.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view8))
-        App.INSTANCE.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view9))
-        App.INSTANCE.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view10))
+        App.instance.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view10))
+        App.instance.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view9))
+        App.instance.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view8))
+        App.instance.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view7))
+        App.instance.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view6))
+        App.instance.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view5))
+        App.instance.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view4))
+        App.instance.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view8))
+        App.instance.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view9))
+        App.instance.STORAGE.listPhoto2.add(Photo(R.drawable.ic_view10))
     }
     private fun addPhoto3() {
-        App.INSTANCE.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view5))
-        App.INSTANCE.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view6))
-        App.INSTANCE.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view2))
-        App.INSTANCE.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view4))
-        App.INSTANCE.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view5))
-        App.INSTANCE.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view7))
-        App.INSTANCE.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view7))
-        App.INSTANCE.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view8))
-        App.INSTANCE.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view9))
-        App.INSTANCE.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view1))
+        App.instance.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view5))
+        App.instance.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view6))
+        App.instance.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view2))
+        App.instance.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view4))
+        App.instance.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view5))
+        App.instance.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view7))
+        App.instance.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view7))
+        App.instance.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view8))
+        App.instance.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view9))
+        App.instance.STORAGE.listPhoto3.add(Photo(R.drawable.ic_view1))
     }
     private fun addPhoto4() {
-        App.INSTANCE.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view9))
-        App.INSTANCE.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view5))
-        App.INSTANCE.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view7))
-        App.INSTANCE.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view2))
-        App.INSTANCE.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view7))
-        App.INSTANCE.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view10))
-        App.INSTANCE.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view7))
-        App.INSTANCE.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view8))
-        App.INSTANCE.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view1))
-        App.INSTANCE.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view10))
+        App.instance.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view9))
+        App.instance.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view5))
+        App.instance.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view7))
+        App.instance.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view2))
+        App.instance.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view7))
+        App.instance.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view10))
+        App.instance.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view7))
+        App.instance.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view8))
+        App.instance.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view1))
+        App.instance.STORAGE.listPhoto4.add(Photo(R.drawable.ic_view10))
     }
     private fun addPhoto5() {
-        App.INSTANCE.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view2))
-        App.INSTANCE.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view6))
-        App.INSTANCE.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view9))
-        App.INSTANCE.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view10))
-        App.INSTANCE.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view1))
-        App.INSTANCE.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view2))
-        App.INSTANCE.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view9))
-        App.INSTANCE.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view8))
-        App.INSTANCE.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view9))
-        App.INSTANCE.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view2))
+        App.instance.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view2))
+        App.instance.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view6))
+        App.instance.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view9))
+        App.instance.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view10))
+        App.instance.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view1))
+        App.instance.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view2))
+        App.instance.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view9))
+        App.instance.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view8))
+        App.instance.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view9))
+        App.instance.STORAGE.listPhoto5.add(Photo(R.drawable.ic_view2))
     }
     private fun addPhoto6() {
-        App.INSTANCE.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view2))
-        App.INSTANCE.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view5))
-        App.INSTANCE.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view1))
-        App.INSTANCE.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view6))
-        App.INSTANCE.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view2))
-        App.INSTANCE.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view3))
-        App.INSTANCE.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view10))
-        App.INSTANCE.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view8))
-        App.INSTANCE.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view9))
-        App.INSTANCE.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view4))
+        App.instance.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view2))
+        App.instance.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view5))
+        App.instance.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view1))
+        App.instance.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view6))
+        App.instance.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view2))
+        App.instance.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view3))
+        App.instance.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view10))
+        App.instance.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view8))
+        App.instance.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view9))
+        App.instance.STORAGE.listPhoto6.add(Photo(R.drawable.ic_view4))
     }
     private fun addPhoto7() {
-        App.INSTANCE.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view6))
-        App.INSTANCE.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view7))
-        App.INSTANCE.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view10))
-        App.INSTANCE.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view9))
-        App.INSTANCE.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view2))
-        App.INSTANCE.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view6))
-        App.INSTANCE.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view7))
-        App.INSTANCE.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view5))
-        App.INSTANCE.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view7))
-        App.INSTANCE.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view8))
+        App.instance.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view6))
+        App.instance.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view7))
+        App.instance.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view10))
+        App.instance.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view9))
+        App.instance.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view2))
+        App.instance.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view6))
+        App.instance.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view7))
+        App.instance.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view5))
+        App.instance.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view7))
+        App.instance.STORAGE.listPhoto7.add(Photo(R.drawable.ic_view8))
     }
      */
 

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.demo2.BaseAct
 import com.example.demo2.databinding.ActivityInputBinding
-import com.example.demo2.step2.db.Info
 
 class InputActivity:BaseAct<ActivityInputBinding>() {
     override fun initViewBinding(): ActivityInputBinding {

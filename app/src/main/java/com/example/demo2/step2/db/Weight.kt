@@ -10,10 +10,7 @@ class Weight {
     var id: Int? = null
 
     var weight: Int? = null
-    var weightPound: Float? = null
-    var targetWeight: Int? = null
-    var height: Int? = null
-    var heightFeet: Float? = null
-
+    var dayOfYear: Float? = null
+    var year: Int? = null
 
 }

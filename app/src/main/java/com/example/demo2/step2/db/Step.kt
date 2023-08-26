@@ -10,21 +10,16 @@ import io.reactivex.annotations.NonNull
 import org.jetbrains.annotations.NotNull
 
 
-@Entity(tableName = "stepDB")
+@Entity(tableName = "Step")
 class Step {
 
     @PrimaryKey(autoGenerate = true)
     var id: Int? = null
 
-    var day: Int? = null
-    var week: Int? = null
-    var month: Int? = null
+    var hourOfDay: Int? = null
+    var stepCounter: Int? = null
+    var timeStep: Int? = null
+    var dayOfYear: Int? = null
     var year: Int? = null
-    var stepTarget: Int? = null
-    var step: Int? = null
-    var time: Int? = null
-    var calorie: Float? = null
-    var meter: Float? = null
-
 
 }

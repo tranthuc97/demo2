@@ -38,7 +38,7 @@ class RecyclerViewAdapter2(private var context: Context, private var list:Mutabl
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: ClassHolder, position: Int) {
         var data: Photo = list[position]       //thay Any bằng tên Model tương ứng
-        holder.imgView.setImageDrawable(App.INSTANCE.resources.getDrawable(data.PHOTO))
+        holder.imgView.setImageDrawable(App.instance.resources.getDrawable(data.PHOTO))
         holder.imgView.tag = data.NAMEPHOTO
     }
 

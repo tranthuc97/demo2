@@ -3,7 +3,7 @@ package com.example.demo2.step2
 import android.content.Intent
 import com.example.demo2.BaseAct
 import com.example.demo2.databinding.ActivityInput2Binding
-import com.example.demo2.databinding.ActivityInputBinding
+import com.example.demo2.step2.db.StepActivity
 
 class Input2Activity:BaseAct<ActivityInput2Binding>() {
     override fun initViewBinding(): ActivityInput2Binding {

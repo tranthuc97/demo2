@@ -20,24 +20,24 @@ class CommonUtils {
     //PT dùng để lưu giữ liệu nhập vào
     fun savePrefs(key: String, value: String) {
         val prefs: SharedPreferences =
-            App.INSTANCE.getSharedPreferences(PREE_FILE, Context.MODE_PRIVATE)
+            App.instance.getSharedPreferences(PREE_FILE, Context.MODE_PRIVATE)
         prefs.edit().putString(key, value).apply()
     }
 
     //PT dùng để lấy dữ liệu đã lưu ra
     fun getPrefs(key: String): String? {
         val prefs: SharedPreferences =
-            App.INSTANCE.getSharedPreferences(PREE_FILE, Context.MODE_PRIVATE)
+            App.instance.getSharedPreferences(PREE_FILE, Context.MODE_PRIVATE)
         return prefs.getString(key, null)
     }
 
     //PT này dùng để nếu muốn xóa ko lưu dữ liệu nữa
     fun clearPrefs(key: String) {
         val prefs: SharedPreferences =
-            App.INSTANCE.getSharedPreferences(PREE_FILE, Context.MODE_PRIVATE)
+            App.instance.getSharedPreferences(PREE_FILE, Context.MODE_PRIVATE)
         prefs.edit().remove(key).apply()
     }
 
-    //cần đến PT nào trong CommonUtils gọi PT: CommonUtils.INSTANCE.tenPT(truyền dữ liệu tương ứng)
+    //cần đến PT nào trong CommonUtils gọi PT: CommonUtils.instance.tenPT(truyền dữ liệu tương ứng)
 
 }

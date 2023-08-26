@@ -8,13 +8,9 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Handler
 import android.util.Log
-import com.example.demo2.App
 import com.example.demo2.BaseAct
 import com.example.demo2.databinding.Activity3Binding
-import com.example.demo2.step2.db.BMI
-import com.example.demo2.step2.db.Info
-import com.example.demo2.step2.db.Step
-import com.example.demo2.step2.db.Weight
+import com.example.demo2.step2.db.StepActivity
 import java.util.*
 
 
@@ -43,7 +39,7 @@ class StepActivity : BaseAct<Activity3Binding>(), SensorEventListener, StepListe
 
         // Get an instance of the SensorManager
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
-        accelerator = sensorManager!!.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)
+        accelerator = sensorManager!!.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
         stepDetector = StepDetector()
         stepDetector!!.registerListener(this)
 
@@ -115,45 +111,45 @@ class StepActivity : BaseAct<Activity3Binding>(), SensorEventListener, StepListe
         binding!!.btCheck.setOnClickListener {
             val c = Calendar.getInstance()
 
-            val year = c.get(Calendar.YEAR)
+            val hour = c.get(Calendar.YEAR)
             val month = c.get(Calendar.MONTH)
-            val day = c.get(Calendar.DAY_OF_MONTH)
+            val day = c.get(Calendar.DAY_OF_YEAR)
 
-            var info = Info()
-            var step = Step()
-            var weight = Weight()
-            var chiSoBMI = BMI()
-//            step.id = 1
-
-            info.age = CommonUtils.INSTANCE.getPrefs(Constant.AGE)!!.toInt()
-            info.name = CommonUtils.INSTANCE.getPrefs(Constant.NAME)
-            info.sex = CommonUtils.INSTANCE.getPrefs(Constant.SEX)
-
-            step.day = day
-            step.week = day / 7
-            step.month = month
-            step.year = year
-            step.step = CommonUtils.INSTANCE.getPrefs(Constant.STEP)!!.toInt()
-            step.time = CommonUtils.INSTANCE.getPrefs(Constant.TIME)!!.toInt()
-            step.calorie = CommonUtils.INSTANCE.getPrefs(Constant.CALORIE)!!.toFloat()
-            step.meter = CommonUtils.INSTANCE.getPrefs(Constant.METER)!!.toFloat()
-            step.stepTarget = CommonUtils.INSTANCE.getPrefs(Constant.STEPTARGET)!!.toInt()
-
-            weight.height = CommonUtils.INSTANCE.getPrefs(Constant.HEIGHT)!!.toInt()
-            weight.weight = CommonUtils.INSTANCE.getPrefs(Constant.WEIGHT)!!.toInt()
-            weight.targetWeight = CommonUtils.INSTANCE.getPrefs(Constant.TARGETWEIGHT)!!.toInt()
-            weight.weightPound = CommonUtils.INSTANCE.getPrefs(Constant.WEIGHT)!!.toFloat() * 0.45F
-            weight.heightFeet = CommonUtils.INSTANCE.getPrefs(Constant.HEIGHT)!!.toFloat() * 3.28F
-
-            chiSoBMI.BMI = CommonUtils.INSTANCE.getPrefs(Constant.BMI)!!.toFloat()
-
-
-            Thread {
-                App.INSTANCE.DB.getStepDAO().insertStep(step)
-                App.INSTANCE.DB.getStepDAO().insertBMI(chiSoBMI)
-                App.INSTANCE.DB.getStepDAO().insertWeight(weight)
-                App.INSTANCE.DB.getStepDAO().insertInfo(info)
-            }.start()
+            //var info = Info()
+            //            var step = Step()
+            //            var weight = Weight()
+            //            var chiSoBMI = BMI()
+            ////            step.id = 1
+            //
+            //            info.age = CommonUtils.INSTANCE.getPrefs(Constant.AGE)!!.toInt()
+            //            info.name = CommonUtils.INSTANCE.getPrefs(Constant.NAME)
+            //            info.sex = CommonUtils.INSTANCE.getPrefs(Constant.SEX)
+            //
+            //            step.day = day
+            //            step.week = day / 7
+            //            step.month = month
+            //            step.year = year
+            //            step.step = CommonUtils.INSTANCE.getPrefs(Constant.STEP)!!.toInt()
+            //            step.time = CommonUtils.INSTANCE.getPrefs(Constant.TIME)!!.toInt()
+            //            step.calorie = CommonUtils.INSTANCE.getPrefs(Constant.CALORIE)!!.toFloat()
+            //            step.meter = CommonUtils.INSTANCE.getPrefs(Constant.METER)!!.toFloat()
+            //            step.stepTarget = CommonUtils.INSTANCE.getPrefs(Constant.STEPTARGET)!!.toInt()
+            //
+            //            weight.height = CommonUtils.INSTANCE.getPrefs(Constant.HEIGHT)!!.toInt()
+            //            weight.weight = CommonUtils.INSTANCE.getPrefs(Constant.WEIGHT)!!.toInt()
+            //            weight.targetWeight = CommonUtils.INSTANCE.getPrefs(Constant.TARGETWEIGHT)!!.toInt()
+            //            weight.weightPound = CommonUtils.INSTANCE.getPrefs(Constant.WEIGHT)!!.toFloat() * 0.45F
+            //            weight.heightFeet = CommonUtils.INSTANCE.getPrefs(Constant.HEIGHT)!!.toFloat() * 3.28F
+            //
+            //            chiSoBMI.BMI = CommonUtils.INSTANCE.getPrefs(Constant.BMI)!!.toFloat()
+            //
+            //
+            //            Thread {
+            //                App.INSTANCE.DB.getStepDAO().insertStep(step)
+            //                App.INSTANCE.DB.getStepDAO().insertBMI(chiSoBMI)
+            //                App.INSTANCE.DB.getStepDAO().insertWeight(weight)
+            //                App.INSTANCE.DB.getStepDAO().insertInfo(info)
+            //            }.start()
         }
 
     }

@@ -3,4 +3,8 @@
     <dimen name="d_50dp">50dp</dimen>
     <dimen name="d_200dp">200dp</dimen>
     <dimen name="d_300dp">300dp</dimen>
+    <dimen name="d_6dp">6dp</dimen>
+    <dimen name="d_12dp">12dp</dimen>
+    <dimen name="d_20dp">20dp</dimen>
+    <dimen name="d_0dp">0dp</dimen>
 </resources>

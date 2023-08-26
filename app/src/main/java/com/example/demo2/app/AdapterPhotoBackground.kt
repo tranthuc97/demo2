@@ -20,14 +20,14 @@ class AdapterPhotoBackground(private var context: Context) : RecyclerView.Adapte
     }
 
     override fun getItemCount(): Int {
-        return App.INSTANCE.storage.listIcon.size
+        return App.instance.storage.listIcon.size
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: AdapterPhotoBackground.ClassHolder, position: Int) {
-        var data: Icon = App.INSTANCE.storage.listIcon[position]       //thay Any bằng tên Model tương ứng
+        var data: Icon = App.instance.storage.listIcon[position]       //thay Any bằng tên Model tương ứng
         holder.textView.text = data.TEXT
-        holder.imgView.setImageDrawable(App.INSTANCE.resources.getDrawable(data.ICON))
+        holder.imgView.setImageDrawable(App.instance.resources.getDrawable(data.ICON))
     }
 
     inner class ClassHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

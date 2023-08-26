@@ -7,16 +7,13 @@ import com.example.demo2.step2.db.AppDB
 
 class App : Application() {
 
-    private var db: AppDB? = null
-    val DB: AppDB
-        get() = db!!
+    lateinit var db: AppDB
 
     companion object {
-        private var instance:App? = null
-        val INSTANCE:App
-            get() = instance!!
+        lateinit var instance: App
     }
-    lateinit var storage:Storage
+
+    lateinit var storage: Storage
 
     override fun onCreate() {
         super.onCreate()
@@ -26,7 +23,8 @@ class App : Application() {
         //khởi tạo 1 CSDL lưu trong data bộ nhớ
         db = Room.databaseBuilder(
             this,
-            AppDB::class.java, "step-db")
+            AppDB::class.java, "step-db"
+        )
             .allowMainThreadQueries()
             .build()    //khởi tạo database để có thể truy vấn ở tất cả mọi nơi trong project
     }
