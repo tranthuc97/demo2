@@ -14,7 +14,8 @@ import org.jetbrains.annotations.NotNull
 class Step {
 
     @PrimaryKey(autoGenerate = true)
-    var id: Int? = null
+    @NonNull
+    var id: Int = 0
 
     var hourOfDay: Int? = null
     var stepCounter: Int? = null
