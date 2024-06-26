@@ -1,6 +1,7 @@
 package com.example.demo2.step2.db
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.pm.PackageManager
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -9,15 +10,16 @@ import android.hardware.SensorManager
 import android.os.Handler
 import android.util.Log
 import com.example.demo2.BaseAct
+import com.example.demo2.CustomEdittext
 import com.example.demo2.databinding.Activity3Binding
 import com.example.demo2.step2.StepActivity
 import com.example.demo2.step2.StepDetector
 import com.example.demo2.step2.db.model.*
+import com.google.android.material.internal.ContextUtils.getActivity
 import java.util.*
-import kotlin.collections.ArrayList
 
 
-class StepActivity : BaseAct<Activity3Binding>(), SensorEventListener {
+class StepActivity : BaseAct<Activity3Binding>(), SensorEventListener, CustomEdittext.CallBack {
     override fun initViewBinding(): Activity3Binding {
         return Activity3Binding.inflate(layoutInflater)
     }
@@ -44,12 +46,20 @@ class StepActivity : BaseAct<Activity3Binding>(), SensorEventListener {
     var dayEnd = 0
     var yearCurrent = 0
     var dayInput = 0
-
+    var customView : CustomEdittext? = null
 
 
 
     @SuppressLint("SetTextI18n")
     override fun initViews() {
+        val builder = AlertDialog.Builder(baseContext)
+        builder.setTitle("Thông báo")
+            .setMessage("Nội dung thông báo")
+            .setPositiveButton("OK") { dialog, which ->
+                // Xử lý khi người dùng nhấn nút OK
+            }
+            .show()
+        binding!!.customView.callback = this
         requestPermission()
 
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
@@ -188,4 +198,9 @@ class StepActivity : BaseAct<Activity3Binding>(), SensorEventListener {
 
         stepCount()
     }
+
+    override fun callback(text: String) {
+        Log.i("TAG","getttttt: $text")
+    }
+
 }

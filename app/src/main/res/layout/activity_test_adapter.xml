@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/green"
+    android:layout_height="match_parent">
+
+    <chi.widget.StackView
+        android:id="@+id/stackView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:stack_max_size="5"
+        app:stack_spacing="10dp"
+        app:stack_animation_duration="300"
+        app:stack_swipe_rotation="20"
+        app:stack_swipe_opacity="0.8"
+        app:stack_enable_elevation="true"/>
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:id="@+id/reListNoti"-->
+<!--        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        tools:listitem="@layout/item_adapter_noti"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -83,6 +83,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.8" />
 
+    <com.example.demo2.CustomEdittext
+        android:id="@+id/customView"
+        app:layout_constraintTop_toBottomOf="@id/btCheck"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 
 
 

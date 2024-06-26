@@ -7,4 +7,5 @@
     <dimen name="d_12dp">12dp</dimen>
     <dimen name="d_20dp">20dp</dimen>
     <dimen name="d_0dp">0dp</dimen>
+    <dimen name="default_stack_spacing">12dp</dimen>
 </resources>
